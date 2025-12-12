@@ -37,4 +37,3 @@ updates:
         exclude-patterns:
           - '@react-router/*'
           - 'react-router'
-          - 'react-dom'
