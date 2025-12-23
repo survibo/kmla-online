@@ -78,7 +78,6 @@ export function shouldRevalidate({ currentUrl, nextUrl }) {
 }
 
 /* ============== 유틸 ============== */
-const shouldShowMore = (text = "") => (text || "").length > 120;
 
 // _ts(number) 기반 상대/절대 시간 계산
 function formatRelativeOrDateFromTs(ts) {
@@ -237,7 +236,7 @@ function RecentMessage({ items, onSelect }) {
 }
 
 // ❸ 결과 카드
-function ResultCard({ item, displayTime, isExpanded, onToggle }) {
+function ResultCard({ item, displayTime, isExpanded }) {
   return (
     <li className="bg-white border border-gray-200 rounded p-3">
       <div className="grid grid-cols-[1fr_auto] gap-x-2">
@@ -259,16 +258,6 @@ function ResultCard({ item, displayTime, isExpanded, onToggle }) {
           >
             {item.description ?? "설명 없음"}
           </div>
-
-          {shouldShowMore(item.description) && (
-            <button
-              type="button"
-              onClick={onToggle}
-              className="mt-1 text-xs text-gray-500 underline decoration-gray-300 hover:text-gray-700"
-            >
-              {isExpanded ? "접기" : "더보기"}
-            </button>
-          )}
         </div>
 
         {item.writer && (
